@@ -1,4 +1,4 @@
-Name: {{cookiecutter.project_name}}
+Name: {{cookiecutter.project}}
 Version: %{_VERSION_APP}
 Release: %{_VERSION_PKG}
 BuildArch: x86_64
@@ -8,11 +8,11 @@ Vendor: {{cookiecutter.vendor}}
 URL: {{cookiecutter.project_url}}
 Group: Application/Production
 Packager: {{cookiecutter.author_name}} <{{cookiecutter.author_email}}>
-Provides: {{cookiecutter.project_slug}}
+Provides: {{cookiecutter.project_category}}
 # Requires: python3, python3-virtualenv, supervisor, logrotate
 
 
-%define pkg_root_dir /opt/{{cookiecutter.project_name}}/
+%define pkg_root_dir /opt/{{cookiecutter.project}}/
 
 %define source_code_dir %{pkg_root_dir}/src
 %define dependencies_dir %{pkg_root_dir}/vendor
@@ -30,7 +30,7 @@ Provides: {{cookiecutter.project_slug}}
 rm -rf /tmp/_dependencies
 mkdir -p /tmp/_dependencies
 cd /tmp/_dependencies
-pip3 download -r %{_PROJECT_DIR}/{{cookiecutter.project_name}}/requirements.txt --no-binary=:none: -d /tmp/_dependencies
+pip3 download -r %{_PROJECT_DIR}/{{cookiecutter.project}}/requirements.txt --no-binary=:none: -d /tmp/_dependencies
 
 
 %install
@@ -43,7 +43,7 @@ mkdir -p $RPM_BUILD_ROOT/%{logrotate_dir}
 cd %{_PROJECT_DIR}
 
 # app
-cp -r {{cookiecutter.project_name}}/ $RPM_BUILD_ROOT/%{source_code_dir}
+cp -r {{cookiecutter.project}}/ $RPM_BUILD_ROOT/%{source_code_dir}
 cp -r /tmp/_dependencies/ $RPM_BUILD_ROOT/%{dependencies_dir}/
 
 # venv
@@ -53,11 +53,11 @@ mkdir $RPM_BUILD_ROOT/%{venv_dir}
 cp pkg/config/%{_MODULE}.yaml $RPM_BUILD_ROOT/%{config_dir}/config.yaml
 
 # supervisor
-cp pkg/supervisor/{{cookiecutter.project_name}}.ini $RPM_BUILD_ROOT/%{unit_service_dir}/{{cookiecutter.project_name}}.ini
+cp pkg/supervisor/{{cookiecutter.project}}.ini $RPM_BUILD_ROOT/%{unit_service_dir}/{{cookiecutter.project}}.ini
 
 
 # logrotate
-cp pkg/logrotate/{{cookiecutter.project_name}} $RPM_BUILD_ROOT/%{logrotate_dir}/{{cookiecutter.project_name}}
+cp pkg/logrotate/{{cookiecutter.project}} $RPM_BUILD_ROOT/%{logrotate_dir}/{{cookiecutter.project}}
 
 
 # docs
@@ -76,11 +76,11 @@ cp VERSION $RPM_BUILD_ROOT/%{doc_dir}
 
 # supervisor
 %attr(755, -, -)
-%{unit_service_dir}/{{cookiecutter.project_name}}.ini
+%{unit_service_dir}/{{cookiecutter.project}}.ini
 
 # logrotate
 %attr(644, -, -)
-%{logrotate_dir}/{{cookiecutter.project_name}}
+%{logrotate_dir}/{{cookiecutter.project}}
 
 # docs
 %attr(755, -, -) 
@@ -137,11 +137,11 @@ deactivate
 
 echo "
 >>> Create log directories
-    + mkdir -p /var/log/{{cookiecutter.project_name}}/logs/
-    + mkdir -p /var/log/{{cookiecutter.project_name}}/logs/rotated
+    + mkdir -p /var/log/{{cookiecutter.project}}/logs/
+    + mkdir -p /var/log/{{cookiecutter.project}}/logs/rotated
 "
-mkdir -p /var/log/{{cookiecutter.project_name}}/logs/
-mkdir -p /var/log/{{cookiecutter.project_name}}/logs/rotated
+mkdir -p /var/log/{{cookiecutter.project}}/logs/
+mkdir -p /var/log/{{cookiecutter.project}}/logs/rotated
 
 
 echo "

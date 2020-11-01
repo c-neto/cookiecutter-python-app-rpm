@@ -1,0 +1,23 @@
+image: centos:7
+
+stages:
+  - cd-rpm
+
+variables:
+  - REPO_URL=
+  - REPO_USER={{cookiecutter.domain_user_name}}
+  - REPO_PASSWORD=
+
+build-and-delivery-release-rpm:
+  stage: cd-rpm
+  before_script:
+    - yum install gcc rpm-build rpm-devel rpmlint make python bash coreutils diffutils patch rpmdevtools -y
+    - echo -e '#!/usr/bin/bash \nexit 0' > /usr/lib/rpm/brp-python-bytecompile
+    - make rpms
+  script:
+    - cd /root/rpmbuild/RPMS/x86_64/
+    - curl -v -u $REPO_USER:$REPO_PASSWORD -T "{$(echo *.rpm | tr ' ' ',')}" $REPO_URL
+  after_script:
+    - rm -rf /root/rpmbuild/RPMS/x86_64/*
+  only:
+    - tags

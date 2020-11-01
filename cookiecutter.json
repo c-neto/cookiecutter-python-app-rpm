@@ -1,11 +1,13 @@
 {
-    "project_name": "python-app",
+    "project": "python-app",
     "description": "Project for change World",
     "license": "Proprietary",
     "vendor": "Github",
-    "project_url": "",
-    "author_name": "",
-    "author_email": "",
-    "project_slug": ""
-
+    "project_url": "https://github.com/augustoliks/template-python-app-rpm",
+    "author_name": "augustoliks",
+    "domain_user_name": "augustoliks",
+    "author_email": "carlos.santos110@fatec.sp.gov.br",
+    "project_description": "123",
+    "project_category": "scripts",
+    "version": "0.1.0-1"
 }
