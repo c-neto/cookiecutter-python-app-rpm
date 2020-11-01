@@ -41,7 +41,7 @@ project_category [scripts]:
 version [0.1.0-1]: 
 ```
 
-- After generate, will be created project directory.
+- After generate, project directory will be created.
 
 ```bash
 ┌─[auugustoliks]@[localhost]:~/github/demo
