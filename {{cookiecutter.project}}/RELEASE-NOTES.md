@@ -1,5 +1,5 @@
-Verion {{cookiecutter.version}}
-===============================
+Version: {{cookiecutter.version}}
+================================
 
 - **Date**: 
 

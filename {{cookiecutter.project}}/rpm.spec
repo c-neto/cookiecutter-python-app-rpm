@@ -50,7 +50,7 @@ cp -r /tmp/_dependencies/ $RPM_BUILD_ROOT/%{dependencies_dir}/
 mkdir $RPM_BUILD_ROOT/%{venv_dir}
 
 # app settings
-cp pkg/config/%{_MODULE}.yaml $RPM_BUILD_ROOT/%{config_dir}/config.yaml
+cp pkg/config/{{cookiecutter.project}}.yml $RPM_BUILD_ROOT/%{config_dir}/{{cookiecutter.project}}.yml
 
 # supervisor
 cp pkg/supervisor/{{cookiecutter.project}}.ini $RPM_BUILD_ROOT/%{unit_service_dir}/{{cookiecutter.project}}.ini
@@ -72,7 +72,7 @@ cp VERSION $RPM_BUILD_ROOT/%{doc_dir}
 %{dependencies_dir}
 
 # app settings
-%config(noreplace) %{config_dir}/config.yaml
+%config(noreplace) %{config_dir}/{{cookiecutter.project}}.yml
 
 # supervisor
 %attr(755, -, -)
