@@ -111,6 +111,7 @@ Executando (%clean): /bin/sh -e /var/tmp/rpm-tmp.Pa1egw
 
 ## Install RPM
 
+```bash
 ┌─[auugustoliks]@[localhost]:~/github/demo/python-app
 └──> $ sudo yum install -y --disablerepo=* /home/auugustoliks/rpmbuild/RPMS/x86_64/python-app-0.1.0-1.x86_64.rpm 
 
@@ -187,7 +188,7 @@ Instalados:
   python-app-0.1.0-1.x86_64                                                                                                                
 ```
 
-## Verify Content Files
+## Verify RPM installed Files
 
 - Supervisor Unit
 
@@ -207,7 +208,7 @@ environment=CONFIG_FILE=/opt/python-app/config/python-app.yml
 
 - Logrotate Unit
 
-```
+```bash
 ┌─[auugustoliks]@[localhost]:~/github/demo/python-app
 └──> $ cat /etc/logrotate.d/python-app 
 /var/log/python-app/logs/*{
@@ -234,7 +235,7 @@ environment=CONFIG_FILE=/opt/python-app/config/python-app.yml
 
 ## See python-app running
 
-```
+```bash
 ┌─[auugustoliks]@[localhost]:~/github/demo/template-python-app-rpm
 └──> $ supervisorctl 
 app                              RUNNING   pid 30936, uptime 0:16:16
