@@ -23,7 +23,7 @@ Provides: {{cookiecutter.project_category}}
 
 
 %description
-{{cookiecutter.project_description}}.
+{{cookiecutter.description}}.
 
 
 %prep
