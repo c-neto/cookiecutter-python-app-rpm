@@ -19,7 +19,7 @@
 pip3 install cookiecutter
 ```
 
-> Warning: Require Python >= 3.6 and pip
+> Warning: Require Python >= 3.6 and pip compatible
 
 ## How to install
 
