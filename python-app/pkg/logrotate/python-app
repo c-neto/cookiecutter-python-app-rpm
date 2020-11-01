@@ -1,0 +1,18 @@
+/var/log/python-app/logs/*{
+    # Rotacionamento feito regularmente por dia
+    daily
+
+    # Rotaciona os ultimos 15 arquivos rotacionados
+    rotate 15
+
+    # apaga os arquivos rotacionados. nao ha necessidade de criar um arquivo
+    # vazio apos a rotacao, python/loguru cria caso na exista o arquivo de log
+    # se tem -> atualiza | se nao tem -> cria
+    nocreate
+
+    # Comprime os arquivos rotacionados
+    compress
+
+    # Move os arquivos rotacionados para o diretorio indicado
+    olddir /var/log/python-app/rotated/
+}
