@@ -1,7 +1,7 @@
 Version: {{cookiecutter.version}}
 ================================
 
-- **Date**: 
+- **Date**: {% now 'utc' %}
 
 - Context:
     - Explain context for this app version.
