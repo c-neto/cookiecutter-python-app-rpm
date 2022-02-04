@@ -1,7 +1,7 @@
 # template-python-app-rpm
 
 - __Date__: 01/11/2020
-- __Author__: [@augustoliks](https://github.com/augustoliks) | <carlos.santos110@fatec.sp.gov.br>
+- __Author__: [@augustoliks](https://github.com/augustoliks)
 - __Description__: Cookiecutter project template for create Python application wrapped over RPM format with dependencies embedded. 
 - __Objective__: Provides productivity on wrapped python generic application over RPM package format.  
 - __Actual Features__:
